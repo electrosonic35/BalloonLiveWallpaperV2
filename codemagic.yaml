@@ -1,0 +1,13 @@
+workflows:
+  android-workflow:
+    name: Balloon Live Wallpaper V2
+    max_build_duration: 30
+    environment:
+      java: 17
+    scripts:
+      - name: Build debug APK
+        script: |
+          chmod +x ./gradlew
+          ./gradlew --no-daemon clean assembleDebug
+    artifacts:
+      - app/build/outputs/apk/debug/*.apk
